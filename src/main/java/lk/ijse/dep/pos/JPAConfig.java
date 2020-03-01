@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -20,7 +21,8 @@ import javax.sql.DataSource;
 
 @EnableTransactionManagement
 @Configuration
-@PropertySource("file:${user.dir}/resources/application.properties")
+@PropertySource("classpath:application.properties")
+@EnableJpaRepositories
 public class JPAConfig {
 
     @Autowired
