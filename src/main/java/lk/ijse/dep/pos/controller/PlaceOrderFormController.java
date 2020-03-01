@@ -343,7 +343,7 @@ public class PlaceOrderFormController {
             // If we are going to use OpenJPA or EclipseLink, etc.
 //            Connection connection = em.unwrap(Connection.class);
 
-//            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/pos/report/order-report.jasper"));
+//            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/report/order-report.jasper"));
 //            Map<String, Object> params = new HashMap<>();
 //            params.put("orderId", orderId + "");
 //            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, DBConnection.getInstance().getConnection());
@@ -362,7 +362,7 @@ public class PlaceOrderFormController {
             ((Stage) (txtQty.getScene().getWindow())).close();
             return;
         }
-        URL resource = this.getClass().getResource("/lk/ijse/dep/pos/view/MainForm.fxml");
+        URL resource = this.getClass().getResource("/view/MainForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());

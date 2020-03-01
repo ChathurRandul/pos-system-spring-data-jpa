@@ -37,7 +37,7 @@ public class AppInitializer extends Application {
             fileHandler.setLevel(Level.INFO);
             rootLogger.addHandler(fileHandler);
 
-            URL resource = this.getClass().getResource("/lk/ijse/dep/pos/view/MainForm.fxml");
+            URL resource = this.getClass().getResource("/view/MainForm.fxml");
             Parent root = FXMLLoader.load(resource);
             Scene mainScene = new Scene(root);
             primaryStage.setScene(mainScene);

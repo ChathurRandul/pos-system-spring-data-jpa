@@ -152,17 +152,18 @@ public class MainFormController implements Initializable {
             FXMLLoader fxmlLoader = null;
             switch (icon.getId()) {
                 case "imgCustomer":
-                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/dep/pos/view/ManageCustomerForm.fxml"));
+                    root = FXMLLoader.load(this.getClass().getResource("/view/ManageCustomerForm.fxml"));
                     break;
                 case "imgItem":
-                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/dep/pos/view/ManageItemForm.fxml"));
+                    root = FXMLLoader.load(this.getClass().getResource("/view/ManageItemForm.fxml"));
                     break;
                 case "imgOrder":
-                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/dep/pos/view/PlaceOrderForm.fxml"));
+                    root = FXMLLoader.load(this.getClass().getResource("/view/PlaceOrderForm.fxml"));
                     break;
                 case "imgViewOrders":
-                    fxmlLoader = new FXMLLoader(this.getClass().getResource("/lk/ijse/dep/pos/view/SearchOrdersForm.fxml"));
-                    root = fxmlLoader.load();
+                    new Alert(Alert.AlertType.INFORMATION,"This section is under construction!").show();
+                    /*fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/SearchOrdersForm.fxml"));
+                    root = fxmlLoader.load();*/
                     break;
             }
 

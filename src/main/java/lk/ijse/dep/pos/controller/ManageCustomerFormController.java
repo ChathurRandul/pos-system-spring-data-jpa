@@ -105,7 +105,7 @@ public class ManageCustomerFormController implements Initializable {
     public void btnReport_OnAction(ActionEvent actionEvent) throws JRException {
         JasperDesign jasperDesign = JRXmlLoader.
                 load(this.getClass().
-                        getResourceAsStream("/lk/ijse/dep/pos/report/bean-report.jrxml"));
+                        getResourceAsStream("/report/bean-report.jrxml"));
 
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
@@ -118,7 +118,7 @@ public class ManageCustomerFormController implements Initializable {
 
     @FXML
     private void navigateToHome(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/lk/ijse/dep/pos/view/MainForm.fxml");
+        URL resource = this.getClass().getResource("/view/MainForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
