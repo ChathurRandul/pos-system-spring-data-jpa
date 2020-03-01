@@ -2,8 +2,8 @@ package lk.ijse.dep.pos.business.custom.impl;
 
 import lk.ijse.dep.pos.business.custom.CustomerBO;
 import lk.ijse.dep.pos.business.exception.AlreadyExistsInOrderException;
-import lk.ijse.dep.pos.dao.custom.CustomerDAO;
-import lk.ijse.dep.pos.dao.custom.OrderDAO;
+import lk.ijse.dep.pos.dao.CustomerDAO;
+import lk.ijse.dep.pos.dao.OrderDAO;
 import lk.ijse.dep.pos.dto.CustomerDTO;
 import lk.ijse.dep.pos.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class CustomerBOImpl implements CustomerBO {
 
     @Override
     public void updateCustomer(CustomerDTO customer) throws Exception {
-        customerDAO.update(new Customer(customer.getId(), customer.getName(), customer.getAddress()));
+        customerDAO.save(new Customer(customer.getId(), customer.getName(), customer.getAddress()));
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CustomerBOImpl implements CustomerBO {
         if (orderDAO.existsByCustomerId(customerId)) {
             throw new AlreadyExistsInOrderException("Customer already exists in an order, hence unable to delete");
         }
-        customerDAO.delete(customerId);
+        customerDAO.deleteById(customerId);
     }
 
     @Transactional(readOnly = true)
@@ -61,7 +61,7 @@ public class CustomerBOImpl implements CustomerBO {
     @Transactional(readOnly = true)
     @Override
     public CustomerDTO findCustomer(String customerId) throws Exception {
-        Customer customer = customerDAO.find(customerId);
+        Customer customer = customerDAO.findById(customerId).get();
         return new CustomerDTO(customer.getId(),
                 customer.getName(), customer.getAddress());
     }
